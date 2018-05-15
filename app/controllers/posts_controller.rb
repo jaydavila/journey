@@ -1,14 +1,28 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
+  end
+
+  def showpost
+    @post = Post.find(params[:id])
   end
 
  def new
  end
 
  def create
-   render plain: params[:post].inspect
+   @post = Post.new(post_params)
+   @post.save
+
+   redirect_to posts_path
  end
 
+ def show
+ end
 
+ private
+   def post_params
+     params.require(:post).permit(:title, :body)
+   end
 
 end
