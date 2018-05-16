@@ -10,26 +10,23 @@
   </head>
   <body>
 
-    <div class="sidebar">
+    <nav class="sidebar">
       <ul>
         <li><%= link_to "Journey", posts_path %></li>
           <li><%= link_to "Adventures", posts_path %></li>
       </ul>
 
-      <p class="sign_in">LOG IN</p>
-
-    </div>
-
-     <div id="main_content">
-       <div id="header">
-           <p>Trails</p>
+     <% if !user_signed_in?%>
+            <p class="sign_in"><%= link_to 'LOG IN', new_user_session_path %></p>
+       <% end %>
+       
+        <% if user_signed_in? %>
            <div class="button">
              <button class="button"><%= link_to "Create Post", new_post_path%></button>
-              <button class="button">Log Out</button>
+              <button class="button"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></button>
            </div>
-       </div>
-
-     </div>
+           <% end %>
+     </nav>
    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
