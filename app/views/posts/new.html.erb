@@ -8,10 +8,14 @@
 <%= form_for :post, url: posts_path do |f|%>
 
     <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |msg|%>
-        <div class="alert alert-danger"><%= msg %></div>
+     <div class="errors">
+       <h3><%= pluralize(@post.errors.count, 'error') %> stopped this post from saving</h3>
+          <ul>
+           <% @post.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
         <% end %>
-
+      </ul>
+  </div>
       <% end %>
   <p>
     <%= f.label :title%><br>
