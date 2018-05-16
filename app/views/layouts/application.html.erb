@@ -9,7 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-   <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="sidebar">
+      <ul>
+        <li><%= link_to "Journey", posts_path %></li>
+          <li><%= link_to "Adventures", posts_path %></li>
+      </ul>
+
+      <p class="sign_in">LOG IN</p>
+
+    </div>
+
+     <div id="main_content">
+       <div id="header">
+           <p>Trails</p>
+           <div class="button">
+             <button class="button"><%= link_to "Create Post", new_post_path%></button>
+              <button class="button">Log Out</button>
+           </div>
+       </div>
+
+     </div>
+   <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,9 +48,9 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Create Post", new_post_path%></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav> -->
   <div class="container">
     <%= yield %>
   </div>
