@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,11 +20,12 @@
      <% if !user_signed_in?%>
             <p class="sign_in"><%= link_to 'LOG IN', new_user_session_path %></p>
        <% end %>
-       
+
         <% if user_signed_in? %>
            <div class="button">
              <button class="button"><%= link_to "Create Post", new_post_path%></button>
               <button class="button"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></button>
+              <button class="button"><%= link_to 'Profile', edit_user_registration_path(current_user) %></button>
            </div>
            <% end %>
      </nav>
