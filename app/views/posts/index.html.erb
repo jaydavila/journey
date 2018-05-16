@@ -1,6 +1,6 @@
 <h1>Everyday is a Journey</h1>
 
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
   <div class="well">
     <h3><%= post.title %></h3>
     <p> <%= post.body %></p>

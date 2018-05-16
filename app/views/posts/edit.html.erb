@@ -1,14 +1,14 @@
 
 <h1>Forgot Something?</h1>
 
-<%= form_for :post, url: post_path(@post), method: :patch do |f|%>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
 
     <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |msg|%>
+      <% @post.errors.full_messages.each do |msg| %>
         <div class="alert alert-danger"><%= msg %></div>
-        <% end %>
+    <% end %>
 
-      <% end %>
+
     <p>
       <%= f.label :title%><br>
       <%= f.text_field(:title, {:class => 'form-control'}) %>
@@ -28,4 +28,4 @@
 <%= link_to "Delete", post_path(@post),
      method: :delete,
       data: {confirm: 'Do you want to do this?'},
-        :class => 'btn btn-danger' %>
+        :class => 'btn btn-danger'%>

@@ -5,9 +5,9 @@
 <i class="date"> Submitted <%= time_ago_in_words(@post.created_at) %> ago</i>
 
 <hr>
-
- <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default'%>
-
+      <% if current_user.id == @post.user.id %>
+         <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+       <% end %>
 <hr>
 
    <%= render 'comments/comment' %>
