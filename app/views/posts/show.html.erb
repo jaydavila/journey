@@ -2,7 +2,7 @@
 <h2 class="title"><%= @post.title %></h2>
 <p class="body"><%= @post.body %></p>
 
-<i class="date"> Submitted <%= time_ago_in_words(@post.created_at) %> ago</i>
+
 
 <hr>
       <% if current_user.id == @post.user.id %>
@@ -11,4 +11,8 @@
 <hr>
 
    <%= render 'comments/comment' %>
+
+   <hr><br>
+
+
    <%= render 'comments/form' %>
